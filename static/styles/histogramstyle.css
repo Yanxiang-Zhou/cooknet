@@ -1,0 +1,84 @@
+
+.link {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #c4a109;
+}
+
+circle {
+    fill: #ccc;
+    stroke-width: 7px;
+    stroke: #c4a109;
+}
+
+text.node-label {
+    fill: black;
+    font: 15px Arial;
+    pointer-events: none;
+    align-items: center;
+    align-self: center;
+    background-color: aliceblue;
+}
+
+text.data-label {
+    font: 15px Arial
+}
+
+text.chart-title {
+    font: 30px Arial;
+    text-align: center;
+}
+
+div#histogram-area {
+    box-sizing: content-box;
+    width: 100%;
+    height: 50%;
+    /* border: 1px solid black; */
+}
+
+div.filter-triangle {
+    width: 0;
+    height: 0;
+    background-color: black;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid #555;
+}
+
+.recipe-name {
+    font-family: Arial;
+    font-size: 10px;
+}
+
+.recipe-background {
+    stroke: #c4a109;
+}
+
+#slider-distance {
+  margin: 0px;
+  /* margin-bottom: 20px; */
+}
+
+#slider-distance > div > [thumb] {
+  height: 20px;
+  width: 20px;
+  /* top: -1px; */
+}
+
+#slider-distance > div > [range] {
+  background-color: black;
+  height: 5px;
+}
+
+#slider-distance > div > [inverse-left] {
+  background-color: rgba(189, 195, 199, 1);
+  /* opacity: 30%; */
+  height: 5px;
+
+}
+
+#slider-distance > div > [inverse-right] {
+  background-color: rgba(189, 195, 199, 1);
+  /* opacity: 30%; */
+  height: 5px;
+}

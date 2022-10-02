@@ -1,0 +1,25 @@
+@font-face {
+  font-family: Futura;
+  src: url("../font/Futura.ttc") format("truetype");
+}
+
+@font-face{
+  font-family: GillSans;
+  src: url("../font/GillSans-Semibold.ttc") format("truetype");
+  font-weith: semibold;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: Skia;
+  src: url("../font/Skia-Regular.woff") format("woff");
+  font-weight: regular;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: Skia;
+  src: url("../font/Skia-Light.woff") format("woff");
+  font-weight: light;
+  font-style: normal;
+}

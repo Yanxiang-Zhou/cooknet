@@ -1,0 +1,184 @@
+/*
+	Containers
+*/
+
+#content-wrapper, #example-wrapper {
+	height: 100%;
+	z-index: -1;
+
+}
+
+
+#example-wrapper .scrollContent {
+	width: 100%;
+	height: 100%;
+}
+
+#example-wrapper .scrollContent div {
+	font-size: 13px;
+}
+
+section#titlechart {
+	text-align: center;
+	position: relative;
+	height: 100%;
+	min-height: 500px;
+	min-width: 100%;
+	height: 100vh;
+}
+
+section#titlechart #description {
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	height: 50%;
+	width: 50%;
+}
+section#titlechart #description #text {
+
+	width: 800px;
+	height: 300px;
+	margin: -150px auto auto -400px;
+}
+
+section#titlechart.home #description {
+	padding-top: 0;
+	padding-bottom: 100px;
+}
+section#titlechart #description h1 {
+	margin: 0;
+}
+section#titlechart #description h2 {
+	margin-bottom: 20px;
+}
+section#titlechart #description .viewsource {
+	margin-bottom: 20px;
+	display: inline-block;
+}
+section highlight {
+	background-color: #ffeda0;
+	padding-left: 2px;
+	padding-right: 2px;
+	white-space: nowrap;
+}
+section underline{
+	background-color: none;
+	padding-left: 2px;
+	padding-right: 2px;
+	white-space: nowrap;
+	text-decoration: underline;
+}
+section p {
+	text-align: left;
+	white-space: normal;
+}
+section#titlechart #description p {
+	max-width: 400px;
+	margin: 10px auto 10px auto;
+}
+
+section.demo {
+	/* font-size: 0; */
+	z-index: -1;
+	text-align: center;
+	/* background-image: url("../img/example_bg_v.png"); */
+}
+
+.panel {
+	z-idex: -1;
+	height: 100%;
+	width: 100%;
+}
+
+/*
+	colors
+*/
+
+.black {
+	background-color: #000000;
+}
+.white {
+	background-color: #FFFFFF;
+}
+.yellow{
+	background-color: #F0BC5E;
+}
+
+/*
+	OTHER
+*/
+a.viewsource:after {
+	content: " }";
+}
+a.viewsource:before {
+	content: "{ ";
+}
+
+.demo#section-slides, .demo#section-wipes {
+	height: 100%;
+	width: 100%;
+	background-image: none;
+}
+
+/*
+	General styles
+*/
+body {
+	font-family: "Skia";
+	font-weight: light;
+	/* background-color: #c7e1ff; */
+	background-color: #fff;
+	font-size: 13px;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body, html {
+	height: 100%
+}
+
+h1, h2, h3, h4 {
+	font-family: "Futura";
+	/* font-weight: semibold; */
+}
+h1 {
+	/* font-style: italic; */
+	font-weight: bold;
+	font-size: 40px;
+}
+h2 {
+	font-size: 20px;
+	font-style: italic;
+}
+h3 {
+	font-size: 16px;
+	font-family: "Skia";
+	font-weight: 600;
+	margin: 5px;
+}
+a, a:visited {
+	text-decoration: none;
+	color: #2e639e;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+html.touch .touchonly {
+	display: block;
+}
+
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+
+/*
+
+Codehighlighting
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/

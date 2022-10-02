@@ -1,0 +1,294 @@
+img {
+  padding-right: 10px;
+  padding-left: 10px;
+  display: inline-block;
+}
+
+
+/* Description page */
+
+#imagecontainer {
+  display: block;
+  /* position: relative; */
+  /* display: inline-block; */
+  margin: auto auto auto -500px;
+  width: 1000px;
+  height: 200px;
+  /* float: left; */
+}
+
+#flowchart {
+  position: relative;
+  display: inline-block;
+  margin: auto auto auto -500px;
+  width: 1000px;
+  height: 200px;
+  float: left;
+}
+
+#Arrow {
+  font-size: 40px;
+  display: block;
+  float: left;
+  position: absolute;
+  top: 70%;
+}
+
+#Arrow.white2 {
+  color: white;
+}
+
+/* Style the search box */
+#mySearch {
+  width: 278px;
+  font-size: 15px;
+  padding: 11px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  left: 100%;
+  background: #F0BC5E;
+  margin-bottom: 10px;
+  color: white;
+}
+
+input[id="mySearch"]::placeholder {
+  color: white;
+}
+
+/* Style the navigation menu */
+.scrollbar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border-radius: 20px;
+}
+
+/* Style the navigation links */
+.scrollbar li a {
+  padding: 12px;
+  padding-left: 20px;
+  text-align: left;
+  text-decoration: none;
+  color: black;
+  display: block
+}
+
+.scrollbar li a:hover {
+  color: #F0BC5E;
+  background-color: white;
+}
+
+.scrollbar li a.selected{
+  color: black;
+  background-color: #ffeda0;
+}
+
+ul.scrollbar {
+  width: 300px;
+  height: 400px;
+  overflow-y: auto;
+}
+
+#ingredient {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  height: 50%;
+  width: 50%;
+}
+
+#searchsectioncontainer {
+  width: 800px;
+  heigth: 500px;
+  margin: -250px auto auto -400px;
+}
+
+
+
+/* Ingredient page */
+#searchcontainer {
+	position: relative;
+	margin-left: -100px;
+	width: 200px;
+	height: 100%;
+	float: left;
+}
+
+#ingredientlistcontainer {
+	position: relative;
+	margin-right: 20px;
+	width: 200px;
+	height: 100%;
+	float: right;
+}
+
+#ingredientlistTitle {
+	height: 31px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	color: white;
+	font-size: 12pt;
+	margin-top: 0px;
+	text-align: left;
+	align-items: baseline;
+}
+
+#addremovesymbols {
+	position: relative;
+	height: 200px;
+	width: 40px;
+	float: left;
+	left: 50%;
+	/* margin-left: 100px; */
+	margin-top: 100px;
+
+}
+
+button.add {
+	border: none;
+	/* Remove borders */
+	color: #F0BC5E;
+	/* Add a text color */
+	width: 40px;
+	height: 40px;
+	padding: 11px auto;
+	/* Add some padding */
+	cursor: pointer;
+	/* Add a pointer cursor on mouse-over */
+	background-color: #fff;
+	position: relative;
+	font-size: 18pt;
+	font-weight: bolder;
+	margin-bottom: 20px;
+	border-radius: 5px;
+}
+
+button.minus {
+	border: none;
+	/* Remove borders */
+	color: #F0BC5E;
+	/* Add a text color */
+	width: 40px;
+	height: 40px;
+	padding: auto 11px;
+	/* Add some padding */
+	cursor: pointer;
+	/* Add a pointer cursor on mouse-over */
+	background-color: #fff;
+	position: relative;
+	font-size: 18pt;
+	font-weight: bolder;
+	margin-top: 20px;
+	border-radius: 5px;
+}
+
+button:hover {
+	color: black;
+}
+
+/* Tag page */
+#tag {
+  color: white;
+  display: inline-block;
+  vertical-align: initial;
+  font-size: 15pt;
+}
+
+#tagcontainer {
+  left: 50%;
+  top: 50%;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+}
+
+#tagcontainer2 {
+  width: 1000px;
+  margin: -200px auto auto -500px;
+}
+
+#myCheck {
+  margin-right: 30px;
+  /* backgroud-color:#F0BC5E; */
+}
+
+#myCheck:hover {
+  background-color: #F0BC5E;
+}
+
+/* Final page */
+#finalpage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+}
+
+#finalcontainer {
+  position: relative;
+  margin-left: -200px;
+  margin-top: -100px;
+  width: 400px;
+  height: 100%;
+  float: left;
+}
+
+#startbtn {
+  margin-top: 10px;
+  border: none;
+  background-color: #F0BC5E;
+  font-size: 15pt;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+/* Navigation bar */
+.navibar {
+    float:left;
+    width:100%;
+    position:static;
+    min-width: 800px;
+}
+
+.navibar .topnav {
+  background-color: #fff;
+  overflow: hidden;
+  width: 100%;
+
+}
+
+.navibar .topnav a {
+  z-index: 999;
+  float: right;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#menuitem:hover {
+  background-color: white;
+  color: #F0BC5E;
+}
+
+#menuitem.active {
+  background-color: #F0BC5E;
+  color: white;
+}
+
+.navibar .naviimg {
+  float: left;
+  position:absolute;
+}
+
+.navibar .naviimg img {
+  padding: 0px;
+}
+
+input[type="checkbox"] {
+    background: red;
+    color: #F0BC5E;
+}
