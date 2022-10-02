@@ -1,0 +1,9 @@
+,Time_to_make,Cuisine,Course,Main_ingredient,Vege or not
+1,15-minutes-or-less,north-american,main-dish,meat,vegan
+2,30-minutes-or-less,south-american,desserts,vegetables,vegetarian
+3,60-minutes-or-less,asian,side-dishes,fruit,
+4,4-hours-or-less,european,appetizers,eggs-dairy,
+5,1-day-or-more,african,snacks,pasta-rice-and-grains,
+6,,australian,,seafood,
+7,,middle-eastern,,bread,
+8,,,,nuts,
