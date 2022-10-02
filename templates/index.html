@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=500" />
+<!-- <meta name="keywords" content="ScrollMagic, example, scrolling, attaching, scrollbar, anchor, link, in-page, navigation, hash" />
+	<meta name="author" content="Jan Paepke (www.janpaepke.de)" /> -->
+
+<script>
+	$SCRIPT_ROOT = {{ request.script_root | tojson }};
+</script>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/normalize.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/fonts.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/ScrollMagic.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage.css') }}" type="text/css">
+
+<script type="text/javascript" src="{{ url_for('static', filename='lib/d3.v5.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='lib/ScrollMagic/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='lib/ScrollMagic/ScrollMagic.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/customerlist.js') }}"></script>
+
+<title>CooNet - Homepage</title>
+<link rel="shortcut icon" href="{{ url_for('static', filename='img/chef-hat.ico') }}" type="image/x-icon">
+
+</head>
+
+<body>
+
+	<div id="content-wrapper">
+		<div id="example-wrapper">
+			<div class="scrollContent">
+				<section class="demo" id="section-wipes">
+					<section class='panel' id="titlechart">
+						<div class='navibar'>
+							<div class="naviimg">
+								<img src="{{ url_for('static', filename='img/logo.png') }}" style="width:75px;height:75px;margin-left:20px;">
+								<img src="{{ url_for('static', filename='img/name.png') }}" style="width:150px;height:75px;">
+								<img src="{{ url_for('static', filename='img/GeorgiaTech.png') }}" style="width:216px;height:75px;">
+							</div>
+							<div class="topnav">
+
+								<a id="menuitem" href="https://forms.gle/Dw5GKMuvUDsW8kk39" style="text-decoration:underline">Feedback</a>
+								<a id="menuitem" href="/groupinfo">About</a>
+								<a id="menuitem" href="#Tutorial">Tutorial</a>
+								<a id="menuitem" class="active" href="#home">Home</a>
+							</div>
+						</div>
+						<div id="description">
+							<div id="text">
+								<h1>Get started on renovating your recipe</h1>
+								<h2> <span style="background-color:  #ffeda0">/ Using CooNet / </span></h2>
+								<p>This is the test homepage of group project for course <highlight>CSE 6242</highlight> Data Visualization and Analysis at <b>Georgia Tech</b>.</p>
+								<p>We designed a website for cook and cooking lover to develop and explore their recipe applying <highlight>clustering</highlight> and <highlight>prediction</highlight> algorithm.
+								<p>The homepage is constructed based on the framework of <highlight>ScrollMagic</highlight> and network visualization by <highlight>d3</highlight>.</p>
+								<a  href="/groupinfo" style="background:none;border:none;color:steelblue;text-decoration:underline">{ Our Group }</a><br>
+							</div>
+							<div id="imagecontainer">
+								<img src="{{ url_for('static', filename='img/cluster.png') }}" alt="clustering" style="width:100px;height:100px;">
+								<img src="{{ url_for('static', filename='img/predictive-chart.png') }}" alt="prediction" style="width:100px;height:100px;">
+								<img src="{{ url_for('static', filename='img/network.png') }}" alt="visualizing network" style="width:100px;height:100px;">
+								<img src="{{ url_for('static', filename='img/customs.png') }}" alt="customization of recipe" style="width:100px;height:100px;">
+							</div>
+							<p id='Arrow'>↧</p>
+						</div>
+					</section>
+					<section class="panel yellow">
+						<div id="ingredient">
+							<div id="searchsectioncontainer">
+								<h1 style="font-size:200%">Add your ingredient</h1>
+								<div id="addremovesymbols">
+									<button class="add" onclick="addSelected()"> + </button>
+									<button class="minus" onclick="removeSelected()"> - </button>
+								</div>
+								<div id="searchcontainer">
+									<input type="text" id="mySearch" onkeyup="searchFunction()" placeholder="Search..." title="Type in an ingredient">
+									<ul id="myMenu" class="scrollbar">
+									</ul>
+								</div>
+								<div id="ingredientlistcontainer">
+									<p id="ingredientlistTitle" style="font-size:150%"> Selected ingredients </p>
+									<ul id="selectedMenu" class="scrollbar">
+									</ul>
+								</div>
+							</div>
+							<p id='Arrow' class="white2">↧</p>
+
+						</div>
+					</section>
+					<section class="panel black">
+						<div id='tagcontainer'>
+							<div id="tagcontainer2">
+								<h1 style="color:#F0BC5E;font-size:200%">Choose your recipe tags:</h1>
+								<div id='tags' style="display:flex;flex-direction:row"></div>
+							</div>
+							<p id='Arrow' class="white2">↧</p>
+						</div>
+					</section>
+					<section class="panel white">
+						<div id="finalpage">
+							<div id="finalcontainer">
+								<div id="text">
+									<h1 style="font-size:200%">Now Coo<span style="font-size:100%;color:#F0BC5E">k</span>
+										and Coo<span style="font-size:100%;color:#F0BC5E">l</span>
+										:D</h1>
+									<form method="POST">
+										<button id="startbtn" onclick=generateresult() name="getResult" value="Result">Start!</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</section>
+				</section>
+				<script type='text/javascript'>
+					var selectedlist = [];
+					var selectedtags = [];
+
+
+					// Scroll Magic Controller
+					$(function() { // wait for document ready
+						// init
+						var controller = new ScrollMagic.Controller({
+							globalSceneOptions: {
+								triggerHook: 'onLeave',
+								duration: "200%" // this works just fine with duration 0 as well
+								// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
+								// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
+							}
+						});
+
+						// get all slides
+						var slides = document.querySelectorAll("section.panel");
+
+						// create scene for every slide
+						for (var i = 0; i < slides.length; i++) {
+							new ScrollMagic.Scene({
+									triggerElement: slides[i]
+								})
+								.setPin(slides[i], {
+									pushFollowers: false
+								})
+								// .addIndicators() // add indicators (requires plugin)
+								.addTo(controller);
+						}
+					});
+
+					// Search function
+					function searchFunction() {
+						// Declare variables
+						var input, filter, ul, li, a, i;
+						input = document.getElementById("mySearch");
+						filter = input.value.toUpperCase();
+						ul = document.getElementById("myMenu");
+						li = ul.getElementsByTagName("li");
+
+						// Loop through all list items, and hide those who don't match the search query
+						for (i = 0; i < li.length; i++) {
+							a = li[i].getElementsByTagName("a")[0];
+							if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+								li[i].style.display = "";
+							} else {
+								li[i].style.display = "none";
+							}
+						}
+					}
+
+					// Add & remove buttons
+					function addSelected() {
+						var selected = document.getElementsByClassName("selected")[0];
+						if (selectedlist.includes(selected.innerHTML)) {} else {
+							var ul = document.getElementById("selectedMenu");
+							var li = document.createElement("li");
+							var a = document.createElement("a");
+							a.appendChild(document.createTextNode(selected.innerHTML));
+							li.appendChild(a);
+							ul.appendChild(li);
+
+							selectedlist.push(selected.innerHTML);
+							console.log(selectedlist)
+
+							$(".scrollbar li a").on("click", function() {
+								$(".scrollbar li a").removeClass('selected');
+								$(this).attr('class', 'selected');
+							});
+						};
+					};
+
+					function removeSelected() {
+						var selected = document.getElementById('selectedMenu').getElementsByClassName("selected");
+						if (selected.length == 0){return;}
+
+						selected = selected[0];
+						if (selectedlist.includes(selected.innerHTML)) {
+							selectedlist.splice(selectedlist.indexOf(selected.innerHTML), 1);
+							selected.parentElement.remove();
+						};
+					};
+
+
+					function generateresult() {
+						// upload Data
+						// selectedlist
+						// seletedtag
+						console.log("generate result...")
+						console.log(selectedlist)
+						console.log(selectedtags)
+						//$('button[id="startbtn"]').bind('click', function() {
+						$.getJSON($SCRIPT_ROOT + '/generate_result', {
+							selected: selectedlist,
+							tags: selectedtags
+						}, function(data) {
+						//$("#result").text(data.result);
+						});
+						return false;
+						//});
+					}
+
+				</script>
+				</section>
+			</div>
+		</div>
+	</div>
+	<script src="{{ url_for('static', filename='lib/jquery.js') }}"></script>
+</body>
+
+</html>
